@@ -84,10 +84,19 @@ void FPGA::largeMV(const float* large_mat, const float* input, float* output, in
 			int block_col = min(v_size_, num_input-j);
 
 			// !) Assign a vector
-			/* IMPLEMENT */
+			for(int k = 0; k < block_col; k++)
+			{
+				vec[k] = input[j + k];
+			}
 
-			// 2) Assign a matrix
-			/* IMPLEMENT */
+			// 2) Assign a matrix			
+			for(int l = 0; l < block_row; l++)
+			{
+				for(int m = 0; m < block_row; m++)
+				{
+					mat[l * block_row + m] = large_mat[(i + l) * num_output + j + m];
+				}
+			}
 
 			// 3) Call a function `block_call() to execute MV multiplication
 			const float* ret = this->blockMV();
