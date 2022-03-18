@@ -94,7 +94,7 @@ void FPGA::largeMV(const float* large_mat, const float* input, float* output, in
 			{
 				for(int m = 0; m < block_row; m++)
 				{
-					mat[l * block_row + m] = large_mat[(i + l) * num_output + j + m];
+					mat[l * block_row + m] = large_mat[(i + l) * num_input + j + m];
 				}
 			}
 
